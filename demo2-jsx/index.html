@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>react-dom JSX</title>
+  <!-- Load React16. -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <!-- Load JSX -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+</body>
+
+<script type="text/babel">
+
+  function tick() {
+
+    // 在JSX中使用JS表达式
+    const nowDate = <h1>当前时间为：{new Date().toLocaleString()}</h1>
+
+    ReactDOM.render(
+      nowDate,
+      document.getElementById("app")
+    )
+
+  }
+
+  setInterval(tick, 1000)
+
+</script>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>react-dom 1</title>
+  <!-- Load React16. -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <!-- Load JSX -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+</body>
+
+<script type="text/babel">
+
+  ReactDOM.render(
+    React.createElement("h1", "", "hello React!"),
+    document.getElementById("app")
+  );
+
+  /**
+  * 等价于
+  **/
+  ReactDOM.render(
+    <h1>Hello React!</h1>,
+    document.getElementById("app")
+  );
+
+</script>
+
+</html>
