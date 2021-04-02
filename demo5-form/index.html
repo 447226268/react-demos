@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>react-dom Form</title>
+  <!-- Load React16. -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <!-- Load JSX -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+</body>
+
+<script type="text/babel">
+
+  class NameForm extends React.Component {
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        inputText: '',
+        textareaText: '',
+        selectText: '',
+        count: 0
+      }
+    }
+
+    handleChange(event) {
+      const target = event.target;
+      const value = target.type === 'checkbox' ? target.checked : target.value;
+      const name = target.name;
+      this.setState((state) => ({
+        [name]: value,
+        count: state.count + 1,
+      }))
+    }
+
+    handleSubmit(event) {
+      alert('提交的名字：' + this.state);
+      e.preventDefault();
+    }
+
+    handleReset() {
+      this.setState({
+        value: '',
+        count: 0
+      })
+    }
+
+    render() {
+      return (
+        <form onSubmit={(event) => this.handleSubmit(event)}>
+          <h1>您操作了{this.state.count}次</h1>
+
+          <div>
+            <label>
+              input输入
+            <input type="text" name="inputText" onChange={(event) => this.handleChange(event)} />
+            </label>
+          </div>
+
+          <div>
+            <label>
+              textarea输入
+            <textarea name="textareaText" onChange={(event) => this.handleChange(event)} />
+            </label>
+          </div>
+
+          <div>
+            <label>
+              select选择
+              <select name="selectText" onChange={(event) => this.handleSelect(event)}>
+                <option value="a">a</option>
+                <option value="b">b</option>
+                <option value="c">c</option>
+                <option value="d">d</option>
+                <option value="e">e</option>
+              </select>
+            </label>
+          </div>
+
+          <div>
+            <input type="submit" value="提交" />
+            <input type="reset" value="取消" onClick={() => this.handleReset()} />
+          </div>
+        </form>
+      )
+    }
+  }
+
+  ReactDOM.render(<NameForm />, document.getElementById("app"))
+
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>react-dom Lifting State Up</title>
+  <!-- Load React16. -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <!-- Load JSX -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+</body>
+
+<script type="text/javascript">
+
+  
+  let o = {
+    name: 'ld',
+    age: 2000,
+    sayName: function () {
+      console.log(this.name)
+    }
+  }
+
+  o.sayName()
+
+   
+  console.log(this.name)
+
+</script>
+
+</html>

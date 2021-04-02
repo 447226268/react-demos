@@ -19,7 +19,54 @@
 
 <script type="text/babel">
 
-  
+  // Clock 的Class组件
+  class Clock extends React.Component {
+    // 构造函数
+    constructor(props) {
+      super(props);
+      this.state = {
+        date: (new Date()).toLocaleTimeString()
+      }
+    }
+
+    // 生命周期函数
+    componentDidMount() {
+      this.timerID = setInterval(() => this.tick(), 1000)
+    }
+
+    componentWillUnmount() {
+      clearInterval(this.timerID)
+    }
+
+    // 普通函数
+    tick() {
+      // setState 状态更新函数
+      this.setState((state, props) => ({
+        date: (new Date()).toLocaleTimeString()
+      }))
+    }
+
+    // 渲染函数
+    render() {
+      return (
+        <div>
+          <h1>{this.props.name}现在的时间是：{this.state.date}</h1>
+        </div>
+      )
+    }
+  }
+
+  function App() {
+    return (
+      <div>
+        <Clock name="zx" />
+        <Clock name="ld" />
+        <Clock name="yxr" />
+      </div>
+    )
+  }
+
+  ReactDOM.render(<App />, document.getElementById("app"))
 
 </script>
 
